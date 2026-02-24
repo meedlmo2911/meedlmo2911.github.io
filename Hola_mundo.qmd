@@ -1,0 +1,22 @@
+---
+title: "Untitled"
+author: "Esteban Espinoza de los Monteros"
+format: html
+---
+
+# Dataset
+
+Vamos a utilizar el dataset de "carros" de vega_dataset
+
+```{python}
+import altair as alt
+from vega_datasets import data
+```
+
+
+# Autos
+
+```{python}
+cars = data.cars()
+cars
+```
