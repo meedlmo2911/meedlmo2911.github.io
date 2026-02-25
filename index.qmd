@@ -1,7 +1,32 @@
----
-title: "Hola_mundo"
----
+# Datasets
 
-This is a Quarto website.
+```{python}
+import altair as alt
+from vega_datasets import data
+import pandas as pd
+```
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```{python}
+donations = pd.read_csv('/home/esteban/Documentos/donaciones.txt', parse_dates = ['date'])
+donations.head()
+```
+
+# Gráfico Lineal
+```{python}
+alt.Chart(donations).mark_line().encode(
+    alt.X('date'),
+    alt.Y('sum')
+).interactive()
+```
+
+# Gráfico de barras
+```{python}
+top_day = donations.groupby('week_day')['sum'].sum().idxmax()
+alt.Chart(donations).mark_bar().encode(
+    alt.X('sum(sum)'),
+    alt.Y('week_day', sort = 'x'),
+    color = alt.condition(alt.datum.week_day == top_day,
+                        alt.value('coral'),
+                        alt.value('steelblue'))
+).interactive()
+```
