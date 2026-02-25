@@ -33,5 +33,47 @@
     "title": "Trabajo en clase 2",
     "section": "Implementa tu elección y analiza visualmente qué patrones se observan.",
     "text": "Implementa tu elección y analiza visualmente qué patrones se observan.\n\nLa especie Gentoo se encuentra exclusivamente en Biscoe y presenta una masa corporal notablemente mayor que las demás. Chinstrap aparece solo en Dream y muestra una masa corporal intermedia. Por su parte, Adelie está distribuida en todas las islas y mantiene una masa corporal más baja y relativamente estable entre ellas. En general, las diferencias de masa corporal entre especies son más pronunciadas que las variaciones entre islas, lo que indica que la especie parece ser el factor más determinante en relación con la masa corporal"
+  },
+  {
+    "objectID": "index.html#qué-especies-de-pingüinos-se-encuentran-en-cada-isla-alguna-especie-está-presente-solo-en-una-isla",
+    "href": "index.html#qué-especies-de-pingüinos-se-encuentran-en-cada-isla-alguna-especie-está-presente-solo-en-una-isla",
+    "title": "Trabajo en clase 2",
+    "section": "¿Qué especies de pingüinos se encuentran en cada isla? ¿Alguna especie está presente solo en una isla?",
+    "text": "¿Qué especies de pingüinos se encuentran en cada isla? ¿Alguna especie está presente solo en una isla?\n\n\nCode\n# Tabla de conteo de especie por isla\ncross = penguins.groupby(['species', 'island']).size().reset_index(name='count')\n# Mapa de calor\nchart2 = alt.Chart(cross).mark_rect().encode(\nx=alt.X('island:N', title='Isla'),\ny=alt.Y('species:N', title='Especie'),\ncolor=alt.Color('count:Q', scale=alt.Scale(scheme='blues')),\ntooltip=['species', 'island', 'count']\n).properties(\nwidth=300,\nheight=200,\ntitle=\"Distribución de especies por isla\"\n)\nchart2"
+  },
+  {
+    "objectID": "index.html#qué-técnica-visual-te-permitiría-mostrar-esta-relación-de-forma-compacta-y-clara",
+    "href": "index.html#qué-técnica-visual-te-permitiría-mostrar-esta-relación-de-forma-compacta-y-clara",
+    "title": "Trabajo en clase 2",
+    "section": "¿Qué técnica visual te permitiría mostrar esta relación de forma compacta y clara?",
+    "text": "¿Qué técnica visual te permitiría mostrar esta relación de forma compacta y clara?\n\nUtilizaría un heatmap (mapa de calor), ya que permite mostrar de manera clara y compacta la frecuencia de las combinaciones entre dos variables categóricas. En este caso, las variables involucradas serían: species (tipo: categórica nominal) island (tipo: categórica nominal) Una variable derivada llamada count (tipo: cuantitativa discreta), que indica el número de observaciones correspondientes a cada combinación especie–isla"
+  },
+  {
+    "objectID": "index.html#qué-especies-de-pingüinos-se-encuentran-en-cada-isla-alguna-especie-está-presente-solo-en-una-isla-1",
+    "href": "index.html#qué-especies-de-pingüinos-se-encuentran-en-cada-isla-alguna-especie-está-presente-solo-en-una-isla-1",
+    "title": "Trabajo en clase 2",
+    "section": "¿Qué especies de pingüinos se encuentran en cada isla? ¿Alguna especie está presente solo en una isla?",
+    "text": "¿Qué especies de pingüinos se encuentran en cada isla? ¿Alguna especie está presente solo en una isla?\n\nLa especie Adelie está presente en las tres islas (Biscoe, Dream y Torgersen), mientras que Chinstrap aparece únicamente en Dream y Gentoo solo en Biscoe. Esto evidencia que algunas especies son exclusivas de determinadas islas y que únicamente Adelie posee una distribución amplia, a diferencia de Chinstrap y Gentoo, cuya presencia está restringida a una sola isla."
+  },
+  {
+    "objectID": "index.html#existen-diferencias-notables-entre-machos-y-hembras-en-alguna-característica-cuantitativa",
+    "href": "index.html#existen-diferencias-notables-entre-machos-y-hembras-en-alguna-característica-cuantitativa",
+    "title": "Trabajo en clase 2",
+    "section": "¿Existen diferencias notables entre machos y hembras en alguna característica cuantitativa?",
+    "text": "¿Existen diferencias notables entre machos y hembras en alguna característica cuantitativa?\n\nSí, al examinar la variable culmen_length_mm se identifican diferencias evidentes entre machos y hembras. En términos generales, los machos tienden a presentar una mayor longitud del culmen en comparación con las hembras, lo que podría asociarse con el dimorfismo sexual y las diferencias en el tamaño corporal."
+  },
+  {
+    "objectID": "index.html#elige-una-variable-cuantitativa-adecuada-como-culmen_length_mm-culmen_depth_mm-etc.",
+    "href": "index.html#elige-una-variable-cuantitativa-adecuada-como-culmen_length_mm-culmen_depth_mm-etc.",
+    "title": "Trabajo en clase 2",
+    "section": "Elige una variable cuantitativa adecuada como culmen_length_mm, culmen_depth_mm, etc.",
+    "text": "Elige una variable cuantitativa adecuada como culmen_length_mm, culmen_depth_mm, etc.\n\nSe seleccionó la variable culmen_length_mm (longitud del pico) porque es una variable continua con un rango adecuado y presenta pocos valores faltantes. Además, suele estar vinculada a diferencias morfológicas entre sexos y especies en pingüinos. Por último, cuenta con una unidad de medida clara e interpretable (milímetros), lo que le otorga relevancia biológica y facilita su análisis"
+  },
+  {
+    "objectID": "index.html#justifica-el-gráfico-que-usarías-para-comparar-distribuciones-entre-dos-categorías",
+    "href": "index.html#justifica-el-gráfico-que-usarías-para-comparar-distribuciones-entre-dos-categorías",
+    "title": "Trabajo en clase 2",
+    "section": "Justifica el gráfico que usarías para comparar distribuciones entre dos categorías",
+    "text": "Justifica el gráfico que usarías para comparar distribuciones entre dos categorías\n\nPara comparar la distribución de culmen_length_mm entre machos y hembras, emplearía un boxplot combinado con un stripplot. El boxplot permite visualizar la mediana, los cuartiles y los posibles valores atípicos de cada grupo, facilitando la comparación de la distribución central y la dispersión. El stripplot, por su parte, muestra cada punto de datos individualmente, lo que ayuda a identificar patrones específicos y la densidad de los datos dentro de cada categoría. Esta combinación proporciona una visión completa y detallada de las diferencias entre machos y hembras en cuanto a la longitud del culmen."
   }
 ]
