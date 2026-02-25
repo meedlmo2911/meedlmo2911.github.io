@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Hola_mundo</title>
+<title>Visualización de datos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Hola_mundo</span>
+    <span class="navbar-title">Visualización de datos</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -130,12 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">about.qmd</span>
-    </span>
+<span class="menu-text">Inicio</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -180,15 +175,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="2a074063" class="cell" data-execution_count="1">
+<div id="783ebf4e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="23a60d4d" class="cell" data-execution_count="2">
+<div id="7ea45fbd" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>donations <span class="op">=</span> pd.read_csv(<span class="st">'/home/esteban/Documentos/donaciones.txt'</span>, parse_dates <span class="op">=</span> [<span class="st">'date'</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>donations.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -282,31 +277,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="gráfico-lineal" class="level1">
 <h1>Gráfico Lineal</h1>
-<div id="54806441" class="cell" data-execution_count="3">
+<div id="165adbd6" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>alt.Chart(donations).mark_line().encode(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'date'</span>),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    alt.Y(<span class="st">'sum'</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>).interactive()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="3">
 
 <style>
-  #altair-viz-721bda2e0ab9498cbce12158360f8acb.vega-embed {
+  #altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-721bda2e0ab9498cbce12158360f8acb.vega-embed details,
-  #altair-viz-721bda2e0ab9498cbce12158360f8acb.vega-embed details summary {
+  #altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3.vega-embed details,
+  #altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-721bda2e0ab9498cbce12158360f8acb"></div>
+<div id="altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-721bda2e0ab9498cbce12158360f8acb") {
-      outputDiv = document.getElementById("altair-viz-721bda2e0ab9498cbce12158360f8acb");
+    if (outputDiv.id !== "altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3") {
+      outputDiv = document.getElementById("altair-viz-44cbe10a0fe54f0892d707dc7d1fcfd3");
     }
 
     const paths = {
@@ -361,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gráfico-de-barras" class="level1">
 <h1>Gráfico de barras</h1>
-<div id="59a8b91b" class="cell" data-execution_count="4">
+<div id="807b34b5" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>top_day <span class="op">=</span> donations.groupby(<span class="st">'week_day'</span>)[<span class="st">'sum'</span>].<span class="bu">sum</span>().idxmax()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>alt.Chart(donations).mark_bar().encode(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    alt.X(<span class="st">'sum(sum)'</span>),</span>
@@ -370,26 +365,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                        alt.value(<span class="st">'coral'</span>),</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                        alt.value(<span class="st">'steelblue'</span>))</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>).interactive()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <style>
-  #altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c.vega-embed {
+  #altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c.vega-embed details,
-  #altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c.vega-embed details summary {
+  #altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8.vega-embed details,
+  #altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c"></div>
+<div id="altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c") {
-      outputDiv = document.getElementById("altair-viz-5a2041f8ee2b4dbd9a68ad3d891ce09c");
+    if (outputDiv.id !== "altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8") {
+      outputDiv = document.getElementById("altair-viz-f134cb1f2e1b4ba7be5daf82c7503de8");
     }
 
     const paths = {

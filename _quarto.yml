@@ -2,12 +2,11 @@ project:
   type: website
 
 website:
-  title: "Hola_mundo"
+  title: "Visualización de datos"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Inicio
 
 format:
   html:
