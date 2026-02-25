@@ -1,9 +1,0 @@
-[
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Datasets",
-    "section": "",
-    "text": "import altair as alt\nfrom vega_datasets import data\nimport pandas as pd\n\n\ndonations = pd.read_csv('/home/esteban/Documentos/donaciones.txt', parse_dates = ['date'])\ndonations.head()\n\n\n\n\n\n\n\n\ndate\nsum\nrefund_sum\ndonations\nrefunds\navg\nmax\nytdsum\nytdloss\nweek_day\n\n\n\n\n0\n2020-01-02\n62419.79\n0.0\n3342\n0\n18.677376\n1040.00\n879029.00\n0.0\nThu\n\n\n1\n2020-01-03\n37983.67\n0.0\n1949\n0\n19.488799\n1000.00\n917012.67\n0.0\nFri\n\n\n2\n2020-01-04\n26219.10\n0.0\n1337\n0\n19.610396\n208.00\n943231.77\n0.0\nSat\n\n\n3\n2020-01-05\n33856.07\n0.0\n1289\n0\n26.265376\n5596.86\n977087.84\n0.0\nSun\n\n\n4\n2020-01-06\n26447.11\n0.0\n1347\n0\n19.634083\n699.67\n1003534.95\n0.0\nMon\n\n\n\n\n\n\n\n\nGráfico Lineal\n\nalt.Chart(donations).mark_line().encode(\n    alt.X('date'),\n    alt.Y('sum')\n).interactive()\n\n\n\n\n\n\n\n\n\nGráfico de barras\n\ntop_day = donations.groupby('week_day')['sum'].sum().idxmax()\nalt.Chart(donations).mark_bar().encode(\n    alt.X('sum(sum)'),\n    alt.Y('week_day', sort = 'x'),\n    color = alt.condition(alt.datum.week_day == top_day,\n                        alt.value('coral'),\n                        alt.value('steelblue'))\n).interactive()"
-  }
-]

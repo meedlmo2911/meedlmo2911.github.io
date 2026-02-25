@@ -1,32 +1,48 @@
-# Datasets
+---
+title: "Trabajo en clase 2"
+author: "Ricardo Parra - Esteban Espinoza de los Monteros"
+format: html
+code-fold: true 
+---
+
 
 ```{python}
 import altair as alt
 from vega_datasets import data
 import pandas as pd
+alt.data_transformers.disable_max_rows()
 ```
-
+# Carga del dataset
 ```{python}
-donations = pd.read_csv('/home/esteban/Documentos/donaciones.txt', parse_dates = ['date'])
-donations.head()
+penguins = pd.read_csv("https://raw.githubusercontent.com/erickedu85/dataset/master/penguins.csv")
+penguins.head()
 ```
-
-# Gráfico Lineal
 ```{python}
-alt.Chart(donations).mark_line().encode(
-    alt.X('date'),
-    alt.Y('sum')
-).interactive()
+penguins = penguins.dropna(subset=["species", "island","body_mass_g","sex","culmen_length_mm","culmen_depth_mm"])
+penguins.info()
 ```
-
-# Gráfico de barras
 ```{python}
-top_day = donations.groupby('week_day')['sum'].sum().idxmax()
-alt.Chart(donations).mark_bar().encode(
-    alt.X('sum(sum)'),
-    alt.Y('week_day', sort = 'x'),
-    color = alt.condition(alt.datum.week_day == top_day,
-                        alt.value('coral'),
-                        alt.value('steelblue'))
-).interactive()
+#date theeeprint(alt.theme.names())
+alt.themes.enable("dark")
 ```
+# Pregunta 1 – Distribución por grupo
+## ¿Cómo varía la masa corporal (body_mass_g) entre las diferentes especies y islas de los pingüinos?
+```{python}
+chart1 = alt.Chart(penguins).mark_boxplot(extent='min-max').encode(
+x=alt.X('species:N', title='Especie'),
+y=alt.Y('body_mass_g:Q', title='Masa corporal (g)'),
+color='species:N'
+).properties(
+width=150,
+height=300
+).facet(
+column=alt.Column('island:N', title='Isla')
+)
+chart1
+```
+## ¿Qué tipo de gráfico usarías para comparar la distribución de una variable cuantitativa entre varios grupos definidos por dos variables categóricas?
+### Utilizaría un diagrama de caja (boxplot) porque facilita observar con claridad la distribución de una variable cuantitativa —como body_mass_g— mostrando su mediana, cuartiles y posibles valores atípicos. En este caso, la comparación se realizaría entre distintos grupos definidos por dos variables categóricas: species (especie) e island (isla)
+## ¿Cómo facilitarías la comparación entre subgrupos sin sobrecargar un solo gráfico?
+### Para no saturar un único gráfico con demasiada información, emplearía faceting. En este caso, se segmenta por la variable island, generando un gráfico independiente para cada isla. De esta manera, es más sencillo comparar las especies dentro de cada isla y analizar cómo varía la distribución de la masa corporal de forma diferenciada
+## Implementa tu elección y analiza visualmente qué patrones se observan.
+### La especie Gentoo se encuentra exclusivamente en Biscoe y presenta una masa corporal notablemente mayor que las demás. Chinstrap aparece solo en Dream y muestra una masa corporal intermedia. Por su parte, Adelie está distribuida en todas las islas y mantiene una masa corporal más baja y relativamente estable entre ellas. En general, las diferencias de masa corporal entre especies son más pronunciadas que las variaciones entre islas, lo que indica que la especie parece ser el factor más determinante en relación con la masa corporal
