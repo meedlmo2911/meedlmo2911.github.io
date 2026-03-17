@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "Proyecto.html",
+    "href": "Proyecto.html",
+    "title": "Proyecto",
+    "section": "",
+    "text": "Code\nimport altair as alt\nimport numpy as np\nimport pandas as pd\nimport kagglehub\nimport geopandas as gpd\n\n# Download latest version\npath = kagglehub.dataset_download(\"dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026\")\n\nprint(\"Path to dataset files:\", path)\n\n\nPath to dataset files: /home/esteban/.cache/kagglehub/datasets/dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026/versions/1"
+  },
+  {
+    "objectID": "Proyecto.html#información-de-los-datos",
+    "href": "Proyecto.html#información-de-los-datos",
+    "title": "Proyecto",
+    "section": "Información de los datos",
+    "text": "Información de los datos\n\n\nCode\ndata.info()\n\n\n&lt;class 'pandas.DataFrame'&gt;\nRangeIndex: 106077 entries, 0 to 106076\nData columns (total 19 columns):\n #   Column           Non-Null Count   Dtype  \n---  ------           --------------   -----  \n 0   time             106077 non-null  str    \n 1   latitude         106077 non-null  float64\n 2   longitude        106077 non-null  float64\n 3   depth            105484 non-null  float64\n 4   mag              106077 non-null  float64\n 5   magType          106077 non-null  str    \n 6   nst              31347 non-null   float64\n 7   gap              41986 non-null   float64\n 8   dmin             21402 non-null   float64\n 9   rms              74560 non-null   float64\n 10  id               106077 non-null  str    \n 11  updated          106077 non-null  str    \n 12  place            105855 non-null  str    \n 13  type             106077 non-null  str    \n 14  horizontalError  19983 non-null   float64\n 15  depthError       54440 non-null   float64\n 16  magError         36554 non-null   float64\n 17  magNst           42353 non-null   float64\n 18  status           106077 non-null  str    \ndtypes: float64(12), str(7)\nmemory usage: 15.4 MB"
+  },
+  {
+    "objectID": "Proyecto.html#número-de-valores-nulos-debido-a-que-son-datos-muy-antiguos",
+    "href": "Proyecto.html#número-de-valores-nulos-debido-a-que-son-datos-muy-antiguos",
+    "title": "Proyecto",
+    "section": "Número de valores nulos debido a que son datos muy antiguos:",
+    "text": "Número de valores nulos debido a que son datos muy antiguos:\n\n\nCode\ndata_final['depth'].isnull().sum()\n\n\nnp.int64(593)\n\n\n\nHay 593 valores nulos de profundidad, estos valores se mantendrán debido a que la evolución temporal de los terremotos se realizará con las columnas de fecha, magnitud y coordenadas y es conveniente para el análisis conservar los registros más antiguos aunque no se tenga el dato de profundidad."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Trabajo en clase 2",
@@ -75,5 +96,47 @@
     "title": "Trabajo en clase 2",
     "section": "Justifica el gráfico que usarías para comparar distribuciones entre dos categorías",
     "text": "Justifica el gráfico que usarías para comparar distribuciones entre dos categorías\n\nPara comparar la distribución de culmen_length_mm entre machos y hembras, emplearía un boxplot combinado con un stripplot. El boxplot permite visualizar la mediana, los cuartiles y los posibles valores atípicos de cada grupo, facilitando la comparación de la distribución central y la dispersión. El stripplot, por su parte, muestra cada punto de datos individualmente, lo que ayuda a identificar patrones específicos y la densidad de los datos dentro de cada categoría. Esta combinación proporciona una visión completa y detallada de las diferencias entre machos y hembras en cuanto a la longitud del culmen."
+  },
+  {
+    "objectID": "index.html#tooltip",
+    "href": "index.html#tooltip",
+    "title": "Trabajo en clase 2",
+    "section": "Tooltip",
+    "text": "Tooltip"
+  },
+  {
+    "objectID": "index.html#importación-de-las-librerías-necesarias",
+    "href": "index.html#importación-de-las-librerías-necesarias",
+    "title": "Trabajo en clase 2",
+    "section": "Importación de las librerías necesarias",
+    "text": "Importación de las librerías necesarias\n\n\nCode\nimport altair as alt\nfrom vega_datasets import data\nimport pandas as pd"
+  },
+  {
+    "objectID": "index.html#cargar-el-dataset-de-carros",
+    "href": "index.html#cargar-el-dataset-de-carros",
+    "title": "Trabajo en clase 2",
+    "section": "Cargar el dataset de carros:",
+    "text": "Cargar el dataset de carros:\n\n\nCode\ncars = data.cars()\ncars\n\n\n\n\n\n\n\n\n\nName\nMiles_per_Gallon\nCylinders\nDisplacement\nHorsepower\nWeight_in_lbs\nAcceleration\nYear\nOrigin\n\n\n\n\n0\nchevrolet chevelle malibu\n18.0\n8\n307.0\n130.0\n3504\n12.0\n1970-01-01\nUSA\n\n\n1\nbuick skylark 320\n15.0\n8\n350.0\n165.0\n3693\n11.5\n1970-01-01\nUSA\n\n\n2\nplymouth satellite\n18.0\n8\n318.0\n150.0\n3436\n11.0\n1970-01-01\nUSA\n\n\n3\namc rebel sst\n16.0\n8\n304.0\n150.0\n3433\n12.0\n1970-01-01\nUSA\n\n\n4\nford torino\n17.0\n8\n302.0\n140.0\n3449\n10.5\n1970-01-01\nUSA\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n401\nford mustang gl\n27.0\n4\n140.0\n86.0\n2790\n15.6\n1982-01-01\nUSA\n\n\n402\nvw pickup\n44.0\n4\n97.0\n52.0\n2130\n24.6\n1982-01-01\nEurope\n\n\n403\ndodge rampage\n32.0\n4\n135.0\n84.0\n2295\n11.6\n1982-01-01\nUSA\n\n\n404\nford ranger\n28.0\n4\n120.0\n79.0\n2625\n18.6\n1982-01-01\nUSA\n\n\n405\nchevy s-10\n31.0\n4\n119.0\n82.0\n2720\n19.4\n1982-01-01\nUSA\n\n\n\n\n406 rows × 9 columns"
+  },
+  {
+    "objectID": "index.html#hacer-query-en-google",
+    "href": "index.html#hacer-query-en-google",
+    "title": "Trabajo en clase 2",
+    "section": "Hacer query en google:",
+    "text": "Hacer query en google:\n\n\nCode\ncars['URL'] = 'https://google.com/search?q='+cars['Name']\ncars\n\n\n\n\n\n\n\n\n\nName\nMiles_per_Gallon\nCylinders\nDisplacement\nHorsepower\nWeight_in_lbs\nAcceleration\nYear\nOrigin\nURL\n\n\n\n\n0\nchevrolet chevelle malibu\n18.0\n8\n307.0\n130.0\n3504\n12.0\n1970-01-01\nUSA\nhttps://google.com/search?q=chevrolet chevelle...\n\n\n1\nbuick skylark 320\n15.0\n8\n350.0\n165.0\n3693\n11.5\n1970-01-01\nUSA\nhttps://google.com/search?q=buick skylark 320\n\n\n2\nplymouth satellite\n18.0\n8\n318.0\n150.0\n3436\n11.0\n1970-01-01\nUSA\nhttps://google.com/search?q=plymouth satellite\n\n\n3\namc rebel sst\n16.0\n8\n304.0\n150.0\n3433\n12.0\n1970-01-01\nUSA\nhttps://google.com/search?q=amc rebel sst\n\n\n4\nford torino\n17.0\n8\n302.0\n140.0\n3449\n10.5\n1970-01-01\nUSA\nhttps://google.com/search?q=ford torino\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n401\nford mustang gl\n27.0\n4\n140.0\n86.0\n2790\n15.6\n1982-01-01\nUSA\nhttps://google.com/search?q=ford mustang gl\n\n\n402\nvw pickup\n44.0\n4\n97.0\n52.0\n2130\n24.6\n1982-01-01\nEurope\nhttps://google.com/search?q=vw pickup\n\n\n403\ndodge rampage\n32.0\n4\n135.0\n84.0\n2295\n11.6\n1982-01-01\nUSA\nhttps://google.com/search?q=dodge rampage\n\n\n404\nford ranger\n28.0\n4\n120.0\n79.0\n2625\n18.6\n1982-01-01\nUSA\nhttps://google.com/search?q=ford ranger\n\n\n405\nchevy s-10\n31.0\n4\n119.0\n82.0\n2720\n19.4\n1982-01-01\nUSA\nhttps://google.com/search?q=chevy s-10\n\n\n\n\n406 rows × 10 columns"
+  },
+  {
+    "objectID": "index.html#hacer-una-gráfica",
+    "href": "index.html#hacer-una-gráfica",
+    "title": "Trabajo en clase 2",
+    "section": "Hacer una gráfica:",
+    "text": "Hacer una gráfica:\n\n\nCode\nautos_grafico = alt.Chart(cars).mark_circle().encode(\n    alt.X('Horsepower:Q', title='Horsepower'),\n    alt.Y('Miles_per_Gallon:Q', title='MPG'),\n    href='URL:N',\n    tooltip=['Name:N','Horsepower:Q','Miles_per_Gallon:Q']\n).interactive()\nautos_grafico"
+  },
+  {
+    "objectID": "VS_curso.html",
+    "href": "VS_curso.html",
+    "title": "Visualizando distribuciones",
+    "section": "",
+    "text": "Librerías\n\nimport altair as alt\nimport pandas as pd\nfrom vega_datasets import data\n\n\n\nDataset\n\nmovies = pd.read_csv(\n    \"https://raw.githubusercontent.com/erickedu85/dataset/master/movies.csv\"\n)\nmovies\n\n\n\n\n\n\n\n\ntitle\nruntime\nbudget\nrevenue\ngenre\ncountry\nvote_average\n\n\n\n\n0\nFinding Nemo\n100\n94000000\n940335536\nAnimation\nUnited States of America\n3.86\n\n\n1\nPirates of the Caribbean: The Curse of the Bla...\n143\n140000000\n655011224\nFantasy\nUnited States of America\n3.81\n\n\n2\nThe Simpsons Movie\n87\n75000000\n527068851\nAnimation\nUnited States of America\n3.44\n\n\n3\nPirates of the Caribbean: Dead Man's Chest\n151\n200000000\n1065659812\nFantasy\nUnited States of America\n3.47\n\n\n4\nMars Attacks!\n106\n70000000\n101371017\nFantasy\nUnited States of America\n2.96\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n524\nThe Dark Tower\n95\n60000000\n71000000\nFantasy\nUnited States of America\n3.20\n\n\n525\nSully\n96\n60000000\n238470033\nHistory\nUnited States of America\n3.75\n\n\n526\nThe Emoji Movie\n86\n50000000\n66913939\nAnimation\nUnited States of America\n0.63\n\n\n527\nA Dog's Purpose\n100\n22000000\n194647323\nFantasy\nUnited States of America\n3.61\n\n\n528\nBatman: The Killing Joke\n72\n3500000\n3775000\nAnimation\nUnited States of America\n2.94\n\n\n\n\n529 rows × 7 columns\n\n\n\n\n\nGráfico de puntos y de líneas\n\nalt.Chart(movies).mark_point().encode(\n    alt.X('runtime')\n)\n\nalt.Chart(movies).mark_tick().encode(\n    alt.X('runtime')\n)\n\n\n\n\n\n\n\n\n\nHistograma\n\nalt.Chart(movies).mark_bar().encode(\n    alt.X('runtime', bin = alt.Bin(maxbins = 30)),\n    alt.Y('count()')\n)\n\n\n\n\n\n\n\n\n\nGráfico de densidad\n\nalt.Chart(movies).transform_density(\n    'runtime',\n    as_ = ['runtime', 'density']\n).mark_area().encode(\n    alt.X('runtime:Q'),\n    alt.Y('density:Q')\n)\n\n\n\n\n\n\n\n\nalt.Chart(movies).transform_density(\n    'runtime',\n    groupby = ['genre'],\n    as_ = ['runtime', 'density']\n).mark_area().encode(\n    alt.X('runtime:Q'),\n    alt.Y('density:Q', stack = None),\n    alt.Color('genre')\n)"
   }
 ]

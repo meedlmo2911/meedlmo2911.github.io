@@ -108,3 +108,36 @@ title="Distribución de culmen_length_mm por sexo"
 ### Se seleccionó la variable culmen_length_mm (longitud del pico) porque es una variable continua con un rango adecuado y presenta pocos valores faltantes. Además, suele estar vinculada a diferencias morfológicas entre sexos y especies en pingüinos. Por último, cuenta con una unidad de medida clara e interpretable (milímetros), lo que le otorga relevancia biológica y facilita su análisis
 ## Justifica el gráfico que usarías para comparar distribuciones entre dos categorías
 ### Para comparar la distribución de culmen_length_mm entre machos y hembras, emplearía un boxplot combinado con un stripplot. El boxplot permite visualizar la mediana, los cuartiles y los posibles valores atípicos de cada grupo, facilitando la comparación de la distribución central y la dispersión. El stripplot, por su parte, muestra cada punto de datos individualmente, lo que ayuda a identificar patrones específicos y la densidad de los datos dentro de cada categoría. Esta combinación proporciona una visión completa y detallada de las diferencias entre machos y hembras en cuanto a la longitud del culmen.
+
+# Tecnicas de interacción
+## Tooltip
+
+## Importación de las librerías necesarias
+```{python}
+import altair as alt
+from vega_datasets import data
+import pandas as pd
+```
+
+## Cargar el dataset de carros:
+```{python}
+cars = data.cars()
+cars
+```
+
+## Hacer query en google:
+```{python}
+cars['URL'] = 'https://google.com/search?q='+cars['Name']
+cars
+```
+
+## Hacer una gráfica:
+```{python}
+autos_grafico = alt.Chart(cars).mark_circle().encode(
+    alt.X('Horsepower:Q', title='Horsepower'),
+    alt.Y('Miles_per_Gallon:Q', title='MPG'),
+    href='URL:N',
+    tooltip=['Name:N','Horsepower:Q','Miles_per_Gallon:Q']
+).interactive()
+autos_grafico
+```

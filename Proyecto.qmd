@@ -1,0 +1,52 @@
+---
+title: "Proyecto"
+author: "Ricardo Parra - Esteban Espinoza de los Monteros"
+format: html
+code-fold: true 
+---
+
+# Importación de librerías
+```{python}
+import altair as alt
+import numpy as np
+import pandas as pd
+import kagglehub
+import geopandas as gpd
+
+# Download latest version
+path = kagglehub.dataset_download("dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026")
+
+print("Path to dataset files:", path)
+```
+
+# Lectura de los datos:
+```{python}
+data = pd.read_csv('/home/esteban/.cache/kagglehub/datasets/dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026/versions/1/earthquake1826_2026.csv')
+data
+```
+## Información de los datos
+```{python}
+data.info()
+```
+
+# Descripción de los datos
+### Se puede observar que existen aproximadamente cien mil observaciones. Existen datos nulos en algunas variables debido a las limitaciones de las herramientas de medición en países en desarrollo y en general las mediciones que se realizaron hace mucho tiempo. Es necesario realizar una selección de las variables que nos iteresan, luego una limpieza y transformación de formatos para facilitar la lectura y procesamiento  de los datos.
+
+# Limpieza y transformación de datos
+```{python}
+data['tiempo'] = pd.to_datetime(data['time'], format = 'ISO8601')
+data['fecha'] = data['tiempo'].dt.date
+data['hora'] = data['tiempo'].dt.time
+
+columnas_correctas = ['fecha', 'hora', 'latitude', 'longitude', 'depth', 'mag']
+data_final = data[columnas_correctas]
+data_final
+```
+
+## Número de valores nulos debido a que son datos muy antiguos:
+```{python}
+data_final['depth'].isnull().sum()
+```
+### Hay 593 valores nulos de profundidad, estos valores se mantendrán debido a que la evolución temporal de los terremotos se realizará con las columnas de fecha, magnitud y coordenadas y es conveniente para el análisis conservar los registros más antiguos aunque no se tenga el dato de profundidad.
+
+
