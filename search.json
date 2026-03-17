@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "Proyecto.html",
+    "href": "Proyecto.html",
+    "title": "Proyecto",
+    "section": "",
+    "text": "Code\nimport altair as alt\nimport numpy as np\nimport pandas as pd\nimport kagglehub\nimport geopandas as gpd\n\n# Download latest version\npath = kagglehub.dataset_download(\"dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026\")\n\nprint(\"Path to dataset files:\", path)\n\n\nPath to dataset files: /home/esteban/.cache/kagglehub/datasets/dhrubangtalukdar/200-years-of-global-major-earthquakes-18262026/versions/1"
+  },
+  {
+    "objectID": "Proyecto.html#información-de-los-datos",
+    "href": "Proyecto.html#información-de-los-datos",
+    "title": "Proyecto",
+    "section": "Información de los datos",
+    "text": "Información de los datos\n\n\nCode\ndata.info()\n\n\n&lt;class 'pandas.DataFrame'&gt;\nRangeIndex: 106077 entries, 0 to 106076\nData columns (total 19 columns):\n #   Column           Non-Null Count   Dtype  \n---  ------           --------------   -----  \n 0   time             106077 non-null  str    \n 1   latitude         106077 non-null  float64\n 2   longitude        106077 non-null  float64\n 3   depth            105484 non-null  float64\n 4   mag              106077 non-null  float64\n 5   magType          106077 non-null  str    \n 6   nst              31347 non-null   float64\n 7   gap              41986 non-null   float64\n 8   dmin             21402 non-null   float64\n 9   rms              74560 non-null   float64\n 10  id               106077 non-null  str    \n 11  updated          106077 non-null  str    \n 12  place            105855 non-null  str    \n 13  type             106077 non-null  str    \n 14  horizontalError  19983 non-null   float64\n 15  depthError       54440 non-null   float64\n 16  magError         36554 non-null   float64\n 17  magNst           42353 non-null   float64\n 18  status           106077 non-null  str    \ndtypes: float64(12), str(7)\nmemory usage: 15.4 MB"
+  },
+  {
+    "objectID": "Proyecto.html#número-de-valores-nulos-debido-a-que-son-datos-muy-antiguos",
+    "href": "Proyecto.html#número-de-valores-nulos-debido-a-que-son-datos-muy-antiguos",
+    "title": "Proyecto",
+    "section": "Número de valores nulos debido a que son datos muy antiguos:",
+    "text": "Número de valores nulos debido a que son datos muy antiguos:\n\n\nCode\ndata_final['depth'].isnull().sum()\n\n\nnp.int64(593)\n\n\n\nHay 593 valores nulos de profundidad, estos valores se mantendrán debido a que la evolución temporal de los terremotos se realizará con las columnas de fecha, magnitud y coordenadas y es conveniente para el análisis conservar los registros más antiguos aunque no se tenga el dato de profundidad."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "proyecto_web_limpio",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
